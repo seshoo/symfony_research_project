@@ -59,6 +59,15 @@ db_diff:
 db_drop:
 	docker-compose -f ./docker/docker-compose.yml exec -u www-data php-fpm bin/console doctrine:schema:drop --force
 
+##################
+# Frontend
+##################
+
+fr_build:
+	${DOCKER_COMPOSE} run --rm npm run build
+
+fr_watch:
+	${DOCKER_COMPOSE} run --rm npm run watch
 
 ##################
 # Static code analysis
@@ -76,3 +85,5 @@ cs_fix:
 
 cs_fix_diff:
 	${DOCKER_COMPOSE_PHP_FPM_EXEC} vendor/bin/php-cs-fixer fix --dry-run --diff
+
+

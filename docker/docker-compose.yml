@@ -15,6 +15,18 @@ services:
     volumes:
       - ./../:/var/www/
 
+  npm:
+    container_name: ${COMPOSE_PROJECT_NAME}-node
+    image: node:20.11.0-alpine3.19
+    volumes:
+      - ./../:/var/www/
+    ports:
+      - "3000:3000"
+      - "3001:3001"
+      - "5173:5173"
+    working_dir: /var/www
+    entrypoint: [ 'npm' ]
+
   nginx:
     container_name: ${COMPOSE_PROJECT_NAME}-nginx
     build:

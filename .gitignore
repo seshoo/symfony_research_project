@@ -10,3 +10,8 @@
 /var/
 /vendor/
 ###< symfony/framework-bundle ###
+
+###> frontend ###
+/node_modules/
+/public/build/
+###> frontend ###
