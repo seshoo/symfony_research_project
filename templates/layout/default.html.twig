@@ -1,0 +1,9 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    {{ include('layout/_header.html.twig') }}
+    <div class="content">
+        {% block content %}{% endblock %}
+    </div>
+    {{ include('layout/_footer.html.twig') }}
+{% endblock %}

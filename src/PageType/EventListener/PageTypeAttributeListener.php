@@ -2,7 +2,7 @@
 
 namespace App\PageType\EventListener;
 
-use App\PageType\Attribute\PageType;
+use App\PageType\Attribute\PageMeta;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 use Symfony\Component\HttpKernel\Event\ControllerArgumentsEvent;
 use Symfony\Component\HttpKernel\KernelEvents;
@@ -23,7 +23,7 @@ class PageTypeAttributeListener implements EventSubscriberInterface
         $request = $event->getRequest();
 
         if (!is_array(
-            $attributes = $request->attributes->get('_pageType') ?? $event->getAttributes()[PageType::class] ?? null
+            $attributes = $request->attributes->get('_pageType') ?? $event->getAttributes()[PageMeta::class] ?? null
         )) {
             return;
         }
